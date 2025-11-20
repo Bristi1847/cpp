@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Bank {
+private:
+    int accnum;
+    string name;
+    double balance;
+public:
+    Bank(int acno, string acname, double bal) {
+        accnum = acno;
+        name = acname;
+        balance = bal;
+    }
+    void deposit(double amount) {
+        if(amount > 0) {
+            balance += amount;
+            cout << "Amount Deposited: " << balance << endl;
+        } else {
+            cout << "Not allowed to Deposit" << endl;
+        }
+    }
+    void withdraw(double amount) {
+        if(amount <= 0) {
+            cout << "Withdrawal not allowed" << endl;
+        } else if(balance < amount) {
+            cout << "Insufficient balance" << endl;
+        } else {
+            balance -= amount;
+            cout << "Withdrawal successful. Remaining balance: " << balance << endl;
+        }
+    }
+    void displayBalance() {
+        cout << "Accnum: " << accnum << endl;
+        cout << "Name: " << name << endl;
+        cout << "Balance: " << balance << endl;
+    }
+};
+
+int main() {
+    Bank bank(123456789, "Shreya", 56700.0);
+    bank.displayBalance();
+    bank.deposit(50000.0);
+    bank.withdraw(20000.0);
+    bank.displayBalance();
+    return 0;
+}
