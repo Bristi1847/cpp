@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+
+namespace MathOperations {
+    int num = 10;
+
+    void display() {
+        cout << "Inside namespace MathOperations, num = " << num << endl;
+    }
+}
+
+
+int num = 20;
+
+int main() {
+    int num = 30; 
+
+    cout << "Local num = " << num << endl;             
+    cout << "Global num = " << ::num << endl;          
+    cout << "Namespace num = " << MathOperations::num << endl; 
+
+ 
+    MathOperations::display();
+
+    return 0;
+}
